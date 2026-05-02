@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>Self-care 💖</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ffd6e7, #ffeaf4);
+    color: #5a2a4d;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: deeppink;
+    font-size: 42px;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0 8px 20px rgba(255,105,180,0.2);
+    animation: fadeIn 1s ease;
+}
+
+button {
+    background: deeppink;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: hotpink;
+    transform: scale(1.05);
+}
+
+.checklist label {
+    display: block;
+    margin: 8px 0;
+    cursor: pointer;
+}
+
+.quote, .exercise, .challenge {
+    font-size: 20px;
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    from {opacity:0; transform:translateY(20px);}
+    to {opacity:1; transform:translateY(0);}
+}
+</style>
+
+<script>
+// 💬 цитати
+const quotes = [
+    "Ти достатня вже зараз 💖",
+    "Дбай про себе — це важливо 🌸",
+    "Ти заслуговуєш на відпочинок ✨",
+    "Твій темп — правильний 💕",
+    "Люби себе щодня 💫"
+];
+
+function newQuote() {
+    const random = Math.floor(Math.random() * quotes.length);
+    document.getElementById("quoteText").innerText = quotes[random];
+}
+
+// 🏋️‍♀️ вправи
+const exercises = [
+    "10 присідань 💪",
+    "Планка 30 секунд 🔥",
+    "Розтяжка ніг 1 хв 🧘‍♀️",
+    "10 віджимань 🌸",
+    "Місток для спини ✨",
+    "Стрибки 20 разів 💃"
+];
+
+function newExercise() {
+    const random = Math.floor(Math.random() * exercises.length);
+    document.getElementById("exerciseText").innerText = exercises[random];
+}
+
+// 🎯 челендж
+const challenges = [
+    "Випий 6-8 склянок води 💧",
+    "10 хв розтяжки 🧘‍♀️",
+    "Прогулянка 20 хв 🌿",
+    "Без телефону 1 год 📵",
+    "Лягти спати раніше 🌙"
+];
+
+function newChallenge() {
+    const random = Math.floor(Math.random() * challenges.length);
+    document.getElementById("challengeText").innerText = challenges[random];
+}
+
+// ✅ чекбокси збереження
+document.addEventListener("DOMContentLoaded", () => {
+    const checkboxes = document.querySelectorAll("input[type=checkbox]");
+
+    checkboxes.forEach((box, index) => {
+        const saved = localStorage.getItem("check_" + index);
+        box.checked = saved === "true";
+
+        box.addEventListener("change", () => {
+            localStorage.setItem("check_" + index, box.checked);
+        });
+    });
+});
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🌸 Self-care 🌸</h1>
+
+<!-- 💬 Цитата -->
+<div class="card quote">
+<p id="quoteText">Ти вже молодець 💖</p>
+<button onclick="newQuote()">✨ Нова цитата</button>
+</div>
+
+<!-- 🏋️‍♀️ Вправа -->
+<div class="card exercise">
+<p id="exerciseText">Натисни і отримай вправу 💪</p>
+<button onclick="newExercise()">🏋️‍♀️ Вправа дня</button>
+</div>
+
+<!-- 🎯 Челендж -->
+<div class="card challenge">
+<p id="challengeText">Готова до челенджу? 😏</p>
+<button onclick="newChallenge()">🎯 Спробувати</button>
+</div>
+
+<!-- ☀️ Ранок -->
+<div class="card">
+<h2>☀️ Ранковий ритуал</h2>
+<div class="checklist">
+<label><input type="checkbox"> Випити воду</label>
+<label><input type="checkbox"> Легка зарядка</label>
+<label><input type="checkbox"> Сніданок</label>
+<label><input type="checkbox"> Посміхнутись 😊</label>
+</div>
+</div>
+
+<!-- 🌙 Вечір -->
+<div class="card">
+<h2>🌙 Вечірній догляд</h2>
+<div class="checklist">
+<label><input type="checkbox"> Догляд за шкірою</label>
+<label><input type="checkbox"> Відпочинок</label>
+<label><input type="checkbox"> Без телефону</label>
+<label><input type="checkbox"> Подяка 💖</label>
+</div>
+</div>
+<ul>
+<a href="E:\oд\Щербина ОД\file5(5).html">Повертутися на головну</a></li>
+
+</ul>
+
+
+</div>
+
+</body>
+</html>
